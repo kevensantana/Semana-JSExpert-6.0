@@ -3,6 +3,8 @@ import {  Readable,  Writable } from 'stream'
   
 export default class TestUtil {
 
+
+    //Criar os dados
 static generateReadableStream(data) {
     return new Readable({
     read() {
@@ -15,6 +17,7 @@ static generateReadableStream(data) {
     })
 }
 
+//validação chunk
 static generateWritableStream(onData) {
     return new Writable({
     write(chunk, enc, cb) {
@@ -41,8 +44,8 @@ static defaultHandleParams() {
     }
 
     return {
-    values: () => Object.values(data),
-    ...data,
+        values: () => Object.values(data),
+        ...data,
     }
 }
 }
