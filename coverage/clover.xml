@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647470656125" clover="3.2.0">
-  <project timestamp="1647470656126" name="All files">
+<coverage generated="1647471027104" clover="3.2.0">
+  <project timestamp="1647471027104" name="All files">
     <metrics statements="57" coveredstatements="52" conditionals="20" coveredconditionals="20" methods="16" coveredmethods="13" elements="93" coveredelements="85" complexity="0" loc="57" ncloc="57" packages="2" files="6" classes="6"/>
     <package name="server">
       <metrics statements="45" coveredstatements="45" conditionals="20" coveredconditionals="20" methods="9" coveredmethods="9"/>
@@ -69,18 +69,18 @@
       <metrics statements="12" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
       <file name="testUtil.js" path="/home/keven/www/MeusProjetos/github/Semana-JSExpert-6.0/tests/unit/_util/testUtil.js">
         <metrics statements="12" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4"/>
-        <line num="9" count="15" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="22" count="8" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="32" count="8" type="stmt"/>
-        <line num="33" count="8" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="34" count="8" type="stmt"/>
-        <line num="46" count="8" type="stmt"/>
-        <line num="47" count="8" type="stmt"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
+        <line num="49" count="8" type="stmt"/>
       </file>
     </package>
   </project>

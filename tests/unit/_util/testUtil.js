@@ -1,23 +1,19 @@
-import { jest } from '@jest/globals'
-import {  Readable,  Writable } from 'stream'
+import {jest} from '@jest/globals'
+import {  Readable, Writable} from 'stream'
   
 export default class TestUtil {
-
-
-    //Criar os dados
 static generateReadableStream(data) {
-    return new Readable({
-    read() {
-        for(const item of data) {
-        this.push(item)
-        }
+  return new Readable({
+  read() {
+      for(const item of data) {
+      this.push(item)
+      }
 
-        this.push(null)
-    }
-    })
+      this.push(null)
+  }
+  })
 }
 
-//validação chunk
 static generateWritableStream(onData) {
     return new Writable({
     write(chunk, enc, cb) {
@@ -44,8 +40,8 @@ static defaultHandleParams() {
     }
 
     return {
-        values: () => Object.values(data),
-        ...data,
+    values: () => Object.values(data),
+    ...data,
     }
 }
 }
