@@ -1,20 +1,25 @@
 import config from "./config.js"
-import {Controller} from "./controller.js"
-import {logger} from "./util.js"
+import { Controller} from "./controller.js"
+import {  logger} from "./util.js"
 const {
-location,
+   location,
   pages: {
     homeHTML,
     controllerHTML
   },
-
   constants: {
     CONTENT_TYPE
   }
 } = config
+
+import { once } from 'events' 
+
 const controller = new Controller()
 async function routes(request, response) {
-  const {method,url} = request
+  const {
+    method,
+    url
+  } = request
 
   if (method === 'GET' && url === '/') {
     response.writeHead(302, {
@@ -42,7 +47,33 @@ async function routes(request, response) {
       stream
     } = await controller.getFileStream(controllerHTML)
 
+    // padrão do response é text/html
+    // response.writeHead(200, {
+    //   'Content-Type': 'text/html'
+    // })
+
     return stream.pipe(response)
+  }
+
+  if (method === 'GET' && url.includes('/stream')) {
+    const {
+      stream,
+      onClose
+    } = controller.createClientStream()
+    request.once("close", onClose)
+    response.writeHead(200, {
+      'Content-Type': 'audio/mpeg',
+      'Accept-Rages': 'bytes'
+    })
+
+    return stream.pipe(response)
+  }
+
+  if(method === 'POST' && url === '/controller') {
+    const data = await once(request, 'data')
+    const item = JSON.parse(data)
+    const result = await controller.handleCommand(item)
+    return response.end(JSON.stringify(result))
   }
 
   //files

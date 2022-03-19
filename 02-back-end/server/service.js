@@ -21,6 +21,8 @@ const {
     bitRateDivisor
   }
 } = config
+
+
 export class Service {
   constructor() {
     this.clientStreams = new Map()
@@ -39,7 +41,6 @@ export class Service {
       id,
       clientStream
     }
-
   }
 
   removeClientStream(id) {
@@ -82,6 +83,7 @@ export class Service {
     }
   }
 
+
   broadCast() {
     return new Writable({
       write: (chunk, enc, cb) => {
@@ -91,14 +93,13 @@ export class Service {
             this.clientStreams.delete(id)
             continue;
           }
-
           stream.write(chunk)
         }
-
         cb()
       }
     })
   }
+
   async startStreamming() {
     logger.info(`starting with ${this.currentSong}`)
     const bitRate = this.currentBitRate = (await this.getBitRate(this.currentSong)) / bitRateDivisor
