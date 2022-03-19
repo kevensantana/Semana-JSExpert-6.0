@@ -1,7 +1,0 @@
-
-> semanajsexpert-spotify@1.0.0 test:watch
-> LOG_DISABLED=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache --watchAll
-
-
-
-
